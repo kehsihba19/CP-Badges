@@ -11,30 +11,30 @@ def home():
 
 @app.route("/codeforces/<user>")
 def codeforces(user):
-	logo='https://lh3.googleusercontent.com/WsR_f03nbqW3qZjCZeXUYmnmhSWXo3hQhLX9hgl9QHydCgbXQi_VJeAwnmtuIgTHKdQ'
+	#logo='https://lh3.googleusercontent.com/WsR_f03nbqW3qZjCZeXUYmnmhSWXo3hQhLX9hgl9QHydCgbXQi_VJeAwnmtuIgTHKdQ'
 	x = get_cf(user)
 	rating,colour = x[0], x[1]
-	badge = pybadges.badge(left_text='Codeforces', right_text=rating, right_color=colour,logo=logo)
+	badge = pybadges.badge(left_text='Codeforces', right_text=rating, right_color=colour)
 	response = flask.make_response(badge)
 	response.content_type = 'image/svg+xml'
 	return response
 
 @app.route("/codechef/<user>")
 def codechef(user):
-	logo='https://i.pinimg.com/originals/c5/d9/fc/c5d9fc1e18bcf039f464c2ab6cfb3eb6.jpg'
+	#logo='https://i.pinimg.com/originals/c5/d9/fc/c5d9fc1e18bcf039f464c2ab6cfb3eb6.jpg'
 	x = get_cc(user)
 	rating,colour = x[0], x[1]
-	badge = pybadges.badge(left_text='Codechef', right_text=rating, right_color=colour,logo=logo)
+	badge = pybadges.badge(left_text='Codechef', right_text=rating, right_color=colour)
 	response = flask.make_response(badge)
 	response.content_type = 'image/svg+xml'
 	return response
 
 @app.route("/atcoder/<user>")
 def atcoder(user):
-	logo='https://img.atcoder.jp/assets/atcoder.png'
+	#logo='https://img.atcoder.jp/assets/atcoder.png'
 	x = get_at(user)
 	rating,colour = x[0], x[1]
-	badge = pybadges.badge(left_text='Atcoder', right_text=rating, right_color=colour,logo=logo)
+	badge = pybadges.badge(left_text='Atcoder', right_text=rating, right_color=colour)
 	response = flask.make_response(badge)
 	response.content_type = 'image/svg+xml'
 	return response
