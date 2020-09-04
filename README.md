@@ -53,18 +53,18 @@ The colour of the badge changes as your maximum rating changes according to the 
 Some examples are - 
 
 ![Badge](https://cp-logo.vercel.app/codechef/zabick)
-![Badge](https://cp-logo.vercel.app/codechef/kehsihb)
+![Badge](https://cp-logo.vercel.app/codeforces/invictus_123)
 ![Badge](https://cp-logo.vercel.app/codechef/kehsihba19)
-![Badge](https://cp-logo.vercel.app/codechef/errichto)
+![Badge](https://cp-logo.vercel.app/atcoder/sansen)
 
 ![Badge](https://cp-logo.vercel.app/codeforces/ujjawalrana001)
-![Badge](https://cp-logo.vercel.app/codeforces/invictus_123)
-![Badge](https://cp-logo.vercel.app/codeforces/abhishek.kehsihba)
+![Badge](https://cp-logo.vercel.app/codechef/kehsihb)
+![Badge](https://cp-logo.vercel.app/atcoder/kehsihba)
 ![Badge](https://cp-logo.vercel.app/codeforces/errichto)
 
-![Badge](https://cp-logo.vercel.app/atcoder/sansen)
+![Badge](https://cp-logo.vercel.app/codechef/errichto)
 ![Badge](https://cp-logo.vercel.app/atcoder/anzuof)
-![Badge](https://cp-logo.vercel.app/atcoder/kehsihba)
+![Badge](https://cp-logo.vercel.app/codeforces/abhishek.kehsihba)
 ![Badge](https://cp-logo.vercel.app/atcoder/amiralisalimi)
 
 
