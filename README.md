@@ -66,6 +66,10 @@ Some examples are -
 ![Badge](https://cp-logo.vercel.app/codeforces/abhishek.kehsihba)
 ![Badge](https://cp-logo.vercel.app/atcoder/zhouzhendong)
 
+![Badge](https://cp-logo.vercel.app/yukicoder/hos.lyric)
+![Badge](https://cp-logo.vercel.app/yukicoder/ganariya)
+![Badge](https://cp-logo.vercel.app/yukicoder/imulan)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
