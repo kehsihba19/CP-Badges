@@ -25,6 +25,7 @@ pip3 install requirements.text
 https://cp-logo.vercel.app/codeforces/<user_name>
 https://cp-logo.vercel.app/codechef/<user_name>
 https://cp-logo.vercel.app/atcoder/<user_name>
+https://cp-logo.vercel.app/yukicoder/<user_name>
 ```
 
 ## Usage
@@ -64,8 +65,6 @@ Some examples are -
 ![Badge](https://cp-logo.vercel.app/atcoder/anzuof)
 ![Badge](https://cp-logo.vercel.app/codeforces/abhishek.kehsihba)
 ![Badge](https://cp-logo.vercel.app/atcoder/zhouzhendong)
-
-
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
