@@ -1,6 +1,6 @@
 import flask
 import pybadges
-from data import get_cf, get_cc, get_at, get_yuki
+from data import get_cf, get_cc, get_at, get_yuki, get_top
 
 app = flask.Flask(__name__)
 app.url_map.strict_slashes = False
@@ -38,11 +38,19 @@ def atcoder(user):
     # logo='https://img.atcoder.jp/assets/atcoder.png'
     x = get_at(user)
     rating, colour = x[0], x[1]
-    badge = pybadges.badge(left_text='Atcoder', right_text=rating, right_color=colour)
+    badge = pybadges.badge(left_text='AtCoder', right_text=rating, right_color=colour)
     response = flask.make_response(badge)
     response.content_type = 'image/svg+xml'
     return response
 
+@app.route("/topcoder/<user>")
+def topcoder(user):
+    x = get_top(user)
+    rating, color = x[0], x[1]
+    badge = pybadges.badge(left_text='TopCoder', right_text=str(rating), right_color=color)
+    response = flask.make_response(badge)
+    response.content_type = 'image/svg+xml'
+    return response
 
 @app.route("/yukicoder/<user>")
 def yukicoder(user):
