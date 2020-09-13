@@ -84,6 +84,27 @@ def get_at(user):
     return [val, col]
 
 
+def get_top(user):
+    url = f'http://api.topcoder.com/v2/users/{user}'
+    json_data = requests.get(url).json()
+    rating = None
+    for kind in json_data['ratingSummary']:
+        if kind['name'] == 'Algorithm':
+            rating = kind['rating']
+    color = None
+    if rating < 900:
+        color = "#8E8E81"
+    elif rating < 1200:
+        color = "#5CB01E"
+    elif rating < 1500:
+        color = "#1642E5"
+    elif rating < 2200:
+        color = "#CFE115"
+    else:
+        color = "#FF0000"
+    return [rating, color]
+
+
 def get_yuki(user):
     url = f'https://yukicoder.me/api/v1/user/name/{user}'
     json_data = requests.get(url).json()
