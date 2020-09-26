@@ -4,6 +4,20 @@ import requests
 
 from bs4 import BeautifulSoup as bs
 
+def get_info(handle, website):
+    website = website.lower()
+    if website == 'codechef':
+        return get_cc(handle)
+    elif website == 'codeforces':
+        return get_cf(handle)
+    elif website == 'atcoder':
+        return get_at(handle)
+    elif website == 'topcoder':
+        return get_top(handle)
+    elif website == 'yukicoder':
+        return get_yuki(handle)
+    else:
+        raise ValueError('wrong platform website name')
 
 def get_cf(user):
     r = requests.get(f"https://codeforces.com/profile/{user}").text
