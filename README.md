@@ -1,4 +1,4 @@
-# CP-Badges
+# CP Badges :)
 
 What if there are badges on Github profile that show our Codeforces ratings with the rating colour as well?
 
