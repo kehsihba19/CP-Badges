@@ -1,17 +1,18 @@
 # CP-Badges
 
-What if there are badges on Github profile that show our Codeforces ratings with the rating colour as well? 
+What if there are badges on Github profile that show our Codeforces ratings with the rating colour as well?
 
-So I decided to make my own!
+`So I decided to make my own!`
 
 This repo helps you to create your custom profile badges with max rating in Codechef, Codeforces and Atcoder.
 
-Maybe you can flaunt more with your coding badges now.
+`Maybe you can flaunt more with your coding badges now.`
 
 ### Show some :heart: and :star: the repo to support the project
+
 ---
 
-## Installation
+## 🛠 Installation
 
 Use the package manager [pip3](https://pip.pypa.io/en/stable/) to install requirements file first.
 
@@ -34,7 +35,8 @@ https://cp-logo.vercel.app/yukicoder/<user_name>
 ```python
 [![Badge](https://cp-logo.vercel.app/codechef/gennady.korotkevich)]
 ```
-This corresponds to 
+
+This corresponds to
 
 ![Badge](https://cp-logo.vercel.app/codechef/gennady.korotkevich)
 
@@ -44,6 +46,7 @@ You can add custom links also to the badge for reference :
 [![Badge](https://cp-logo.vercel.app/codechef/gennady.korotkevich)]
 (https://www.codechef.com/users/gennady.korotkevich)
 ```
+
 This will add a link to the badge
 
 [![Badge](https://cp-logo.vercel.app/codechef/gennady.korotkevich)](https://www.codechef.com/users/gennady.korotkevich)
@@ -52,8 +55,7 @@ This will add a link to the badge
 
 The colour of the badge changes as your maximum rating changes according to the website policy.
 
-Some examples are - 
-
+Some examples are -
 
 ![Badge](https://cp-logo.vercel.app/atcoder/tourist)
 ![Badge](https://cp-logo.vercel.app/codeforces/sladkayaKlubnichka)
@@ -76,13 +78,15 @@ Some examples are -
 ![Badge](https://cp-logo.vercel.app/topcoder/forgotter)
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 ## License
+
 [GPL-3.0 License](https://choosealicense.com/licenses/mit/)
 
-#### Star the Repo in case you liked it :)
+### Star the Repo in case you liked it :)
 
 ### © [kehsihba19](https://bit.ly/kehsihba19)
