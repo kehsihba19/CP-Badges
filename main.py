@@ -36,9 +36,9 @@ def get_badge(handle, website):
     
     if display_logo:
         if display_link:
-            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True)
-        else:
             badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True, left_link=link)
+        else:
+            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True)
     else:
         if display_link:
             badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, left_link=link)
