@@ -11,7 +11,8 @@ logos = {
     'codechef': 'https://i.pinimg.com/originals/c5/d9/fc/c5d9fc1e18bcf039f464c2ab6cfb3eb6.jpg',
     'atcoder': 'https://img.atcoder.jp/assets/atcoder.png',
     'topcoder': 'https://raw.githubusercontent.com/donnemartin/interactive-coding-challenges/master/images/logo_topcoder.png',
-    'yukicoder': 'https://pbs.twimg.com/profile_images/875757061669232640/T1_mPQuO_400x400.jpg'
+    'yukicoder': 'https://pbs.twimg.com/profile_images/875757061669232640/T1_mPQuO_400x400.jpg',
+    'uri': 'https://www.urionlinejudge.com.br/judge/img/5.0/logo.130615.png?1591503281'
 }
 
 website_text = {
@@ -19,7 +20,8 @@ website_text = {
     'codechef': 'Codechef',
     'codeforces': 'Codeforces',
     'topcoder': 'TopCoder',
-    'yukicoder': 'YukiCoder'
+    'yukicoder': 'YukiCoder',
+    'uri': 'URI'
 }
 
 

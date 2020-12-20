@@ -16,6 +16,8 @@ def get_info(handle, website):
         return get_top(handle)
     elif website == 'yukicoder':
         return get_yuki(handle)
+    elif website == 'uri':
+        return get_uri(handle)
     else:
         raise ValueError('wrong platform website name')
 
@@ -125,3 +127,21 @@ def get_yuki(user):
     level = str(json_data['Level'])
     color = '#2ecc71'
     return [level, color]
+
+def get_uri(user_id):
+	url = f'https://www.urionlinejudge.com.br/judge/pt/profile/{user_id}'
+	r = requests.get(url).text
+
+	soup = bs(r, 'html.parser')
+	s = soup.find('ul', class_='pb-information')
+	s = [word.lower() for word in s.text.split()]
+	
+	points = 0
+	if 'pontos:' in s:
+		strpoints = s[s.index('pontos:')+1].replace('.', '')
+		points = int(strpoints[:strpoints.index(',')])
+	elif 'points:' in s:
+		strpoints = s[s.index('points:')+1].replace('.', '')
+		points = int(strpoints[:strpoints.index(',')])
+
+	return [points, '#FFCC00']
