@@ -28,13 +28,22 @@ def get_badge(handle, website):
     q = None or request.args.get('logo')
     display_logo = True if (q and q.lower() == 'true') else False
     logo = logos[website]
+    link = None or request.args.get('link')
+    display_link = True if (len(str(link)) > 4) else False
     x = get_info(handle, website)
     rating, color = str(x[0]), str(x[1])
     text = website_text[website.lower()]
+    
     if display_logo:
-        badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True)
+        if display_link:
+            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True)
+        else:
+            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True, left_link=link)
     else:
-        badge = pybadges.badge(left_text=text, right_text=rating, right_color=color)
+        if display_link:
+            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, left_link=link)
+        else:
+            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color)
     response = flask.make_response(badge)
     response.content_type = 'image/svg+xml'
     return response
