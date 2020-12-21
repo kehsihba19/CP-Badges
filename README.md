@@ -28,6 +28,7 @@ https://cp-logo.vercel.app/codechef/<user_name>
 https://cp-logo.vercel.app/atcoder/<user_name>
 https://cp-logo.vercel.app/topcoder/<user_name>
 https://cp-logo.vercel.app/yukicoder/<user_name>
+https://cp-logo.vercel.app/uri/<user_name>
 ```
 
 ## Usage
@@ -72,6 +73,10 @@ Some examples are -
 ![Badge](https://cp-logo.vercel.app/yukicoder/hos.lyric)
 ![Badge](https://cp-logo.vercel.app/yukicoder/ganariya)
 ![Badge](https://cp-logo.vercel.app/yukicoder/imulan)
+
+![Badge](https://cp-logo.vercel.app/uri/40926)
+![Badge](https://cp-logo.vercel.app/uri/440377)
+![Badge](https://cp-logo.vercel.app/uri/40980)
 
 ![Badge](https://cp-logo.vercel.app/topcoder/AmAtUrECoDeR)
 ![Badge](https://cp-logo.vercel.app/topcoder/tourist)
