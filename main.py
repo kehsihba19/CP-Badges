@@ -11,7 +11,8 @@ logos = {
     'codechef': 'https://i.pinimg.com/originals/c5/d9/fc/c5d9fc1e18bcf039f464c2ab6cfb3eb6.jpg',
     'atcoder': 'https://img.atcoder.jp/assets/atcoder.png',
     'topcoder': 'https://raw.githubusercontent.com/donnemartin/interactive-coding-challenges/master/images/logo_topcoder.png',
-    'yukicoder': 'https://pbs.twimg.com/profile_images/875757061669232640/T1_mPQuO_400x400.jpg'
+    'yukicoder': 'https://pbs.twimg.com/profile_images/875757061669232640/T1_mPQuO_400x400.jpg',
+    'uri': 'https://www.urionlinejudge.com.br/judge/img/5.0/logo.130615.png?1591503281'
 }
 
 website_text = {
@@ -19,7 +20,8 @@ website_text = {
     'codechef': 'Codechef',
     'codeforces': 'Codeforces',
     'topcoder': 'TopCoder',
-    'yukicoder': 'YukiCoder'
+    'yukicoder': 'YukiCoder',
+    'uri': 'URI'
 }
 
 
@@ -28,13 +30,22 @@ def get_badge(handle, website):
     q = None or request.args.get('logo')
     display_logo = True if (q and q.lower() == 'true') else False
     logo = logos[website]
+    link = None or request.args.get('link')
+    display_link = True if (len(str(link)) > 4) else False
     x = get_info(handle, website)
     rating, color = str(x[0]), str(x[1])
     text = website_text[website.lower()]
+    
     if display_logo:
-        badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True)
+        if display_link:
+            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True, left_link=link)
+        else:
+            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True)
     else:
-        badge = pybadges.badge(left_text=text, right_text=rating, right_color=color)
+        if display_link:
+            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, left_link=link)
+        else:
+            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color)
     response = flask.make_response(badge)
     response.content_type = 'image/svg+xml'
     return response
