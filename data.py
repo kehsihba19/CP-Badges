@@ -144,4 +144,4 @@ def get_uri(user_id):
 		strpoints = s[s.index('points:')+1].replace('.', '')
 		points = int(strpoints[:strpoints.index(',')])
 
-	return [points, '#FFCC00']
+	return [points, '#F9A908']
