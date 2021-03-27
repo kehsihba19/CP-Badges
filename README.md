@@ -41,6 +41,19 @@ This corresponds to
 
 ![Badge](https://cp-logo.vercel.app/codechef/gennady.korotkevich)
 
+You can also show the logo along with the website name and rating by including the query parameter with the URL `?logo=true`
+
+For example
+```python
+[![Badge](https://cp-logo.vercel.app/codechef/gennady.korotkevich?logo=true)]
+```
+
+
+This corresponds to
+
+![Badge](https://cp-logo.vercel.app/codechef/gennady.korotkevich?logo=true)
+
+
 You can add custom links also to the badge for reference :
 
 ```python
@@ -81,6 +94,8 @@ Some examples are -
 ![Badge](https://cp-logo.vercel.app/topcoder/AmAtUrECoDeR)
 ![Badge](https://cp-logo.vercel.app/topcoder/tourist)
 ![Badge](https://cp-logo.vercel.app/topcoder/forgotter)
+
+![Badge](https://cp-logo.vercel.app/leetcode/Errichto)
 
 ## Contributing
 
