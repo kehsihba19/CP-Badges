@@ -4,6 +4,7 @@ import requests
 
 from bs4 import BeautifulSoup as bs
 
+
 def get_info(handle, website):
     website = website.lower()
     if website == 'codechef':
@@ -18,8 +19,11 @@ def get_info(handle, website):
         return get_yuki(handle)
     elif website == 'uri':
         return get_uri(handle)
+    elif website == 'leetcode':
+        return get_leetcode(handle)
     else:
         raise ValueError('wrong platform website name')
+
 
 def get_cf(user):
     r = requests.get(f"https://codeforces.com/profile/{user}").text
@@ -128,20 +132,39 @@ def get_yuki(user):
     color = '#2ecc71'
     return [level, color]
 
+
 def get_uri(user_id):
-	url = f'https://www.urionlinejudge.com.br/judge/pt/profile/{user_id}'
-	r = requests.get(url).text
+    url = f'https://www.urionlinejudge.com.br/judge/pt/profile/{user_id}'
+    r = requests.get(url).text
 
-	soup = bs(r, 'html.parser')
-	s = soup.find('ul', class_='pb-information')
-	s = [word.lower() for word in s.text.split()]
-	
-	points = 0
-	if 'pontos:' in s:
-		strpoints = s[s.index('pontos:')+1].replace('.', '')
-		points = int(strpoints[:strpoints.index(',')])
-	elif 'points:' in s:
-		strpoints = s[s.index('points:')+1].replace('.', '')
-		points = int(strpoints[:strpoints.index(',')])
+    soup = bs(r, 'html.parser')
+    s = soup.find('ul', class_='pb-information')
+    s = [word.lower() for word in s.text.split()]
 
-	return [points, '#F9A908']
+    points = 0
+    if 'pontos:' in s:
+        strpoints = s[s.index('pontos:')+1].replace('.', '')
+        points = int(strpoints[:strpoints.index(',')])
+    elif 'points:' in s:
+        strpoints = s[s.index('points:')+1].replace('.', '')
+        points = int(strpoints[:strpoints.index(',')])
+
+    return [points, '#F9A908']
+
+
+def get_leetcode(username):
+    url = 'http://leetcode.com/graphql'
+    queryString = '''query getContestRankingData($username: String!) {
+                        userContestRankingHistory(username: $username) {
+                                rating
+                            }
+                    }'''
+    variables = {
+        "username": username,
+    }
+    r = requests.get(url, json={'query': queryString, 'variables': variables})
+    json_data = r.json()
+    rankings = max([d['rating']
+                    for d in json_data['data']['userContestRankingHistory']])
+    rankings = int(rankings)
+    return [rankings, '#FFA116']
