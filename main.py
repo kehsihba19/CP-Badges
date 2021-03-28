@@ -12,7 +12,8 @@ logos = {
     'atcoder': 'https://img.atcoder.jp/assets/atcoder.png',
     'topcoder': 'https://raw.githubusercontent.com/donnemartin/interactive-coding-challenges/master/images/logo_topcoder.png',
     'yukicoder': 'https://pbs.twimg.com/profile_images/875757061669232640/T1_mPQuO_400x400.jpg',
-    'uri': 'https://www.urionlinejudge.com.br/judge/img/5.0/logo.130615.png?1591503281'
+    'uri': 'https://www.urionlinejudge.com.br/judge/img/5.0/logo.130615.png?1591503281',
+    'leetcode': 'https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/resources/LeetCode.png',
 }
 
 website_text = {
@@ -21,7 +22,8 @@ website_text = {
     'codeforces': 'Codeforces',
     'topcoder': 'TopCoder',
     'yukicoder': 'YukiCoder',
-    'uri': 'URI'
+    'uri': 'URI',
+    'leetcode': 'LeetCode',
 }
 
 
@@ -35,17 +37,21 @@ def get_badge(handle, website):
     x = get_info(handle, website)
     rating, color = str(x[0]), str(x[1])
     text = website_text[website.lower()]
-    
+
     if display_logo:
         if display_link:
-            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True, left_link=link)
+            badge = pybadges.badge(left_text=text, right_text=rating,
+                                   right_color=color, logo=logo, embed_logo=True, left_link=link)
         else:
-            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True)
+            badge = pybadges.badge(
+                left_text=text, right_text=rating, right_color=color, logo=logo, embed_logo=True)
     else:
         if display_link:
-            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color, left_link=link)
+            badge = pybadges.badge(
+                left_text=text, right_text=rating, right_color=color, left_link=link)
         else:
-            badge = pybadges.badge(left_text=text, right_text=rating, right_color=color)
+            badge = pybadges.badge(
+                left_text=text, right_text=rating, right_color=color)
     response = flask.make_response(badge)
     response.content_type = 'image/svg+xml'
     return response
