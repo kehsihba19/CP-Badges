@@ -4,7 +4,7 @@ What if there are badges on Github profile that show our Codeforces ratings with
 
 `So I decided to make my own!`
 
-This repo helps you to create your custom profile badges with max rating in Codechef, Codeforces and Atcoder.
+This repo helps you to create your custom profile badges with Max rating in Codechef, Codeforces and many more.
 
 `Maybe you can flaunt more with your coding badges now.`
 
@@ -29,6 +29,7 @@ https://cp-logo.vercel.app/atcoder/<user_name>
 https://cp-logo.vercel.app/topcoder/<user_name>
 https://cp-logo.vercel.app/yukicoder/<user_name>
 https://cp-logo.vercel.app/uri/<user_name>
+https://cp-logo.vercel.app/leetcode/<user_name>
 ```
 
 ## Usage
