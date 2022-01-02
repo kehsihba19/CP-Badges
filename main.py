@@ -14,6 +14,7 @@ logos = {
     'yukicoder': 'https://pbs.twimg.com/profile_images/875757061669232640/T1_mPQuO_400x400.jpg',
     'uri': 'https://www.urionlinejudge.com.br/judge/img/5.0/logo.130615.png?1591503281',
     'leetcode': 'https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/resources/LeetCode.png',
+    'leetcode-cn': 'https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/resources/LeetCode.png'
 }
 
 website_text = {
@@ -24,6 +25,7 @@ website_text = {
     'yukicoder': 'YukiCoder',
     'uri': 'URI',
     'leetcode': 'LeetCode',
+    'leetcode-cn': 'LeetCode-CN'
 }
 
 

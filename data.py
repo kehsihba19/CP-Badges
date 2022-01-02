@@ -21,6 +21,8 @@ def get_info(handle, website):
         return get_uri(handle)
     elif website == 'leetcode':
         return get_leetcode(handle)
+    elif website == 'leetcode-cn':
+        return get_leetcode_cn(handle)
     else:
         raise ValueError('wrong platform website name')
 
@@ -45,7 +47,7 @@ def get_cf(user):
         col = "#700CB0"
     elif (y > 2099 and y <= 2299):
         col = "#F9A908"
-    elif(y > 2299 and y <= 2399):
+    elif (y > 2299 and y <= 2399):
         col = "#FBB948"
     else:
         col = "#FF0000"
@@ -145,10 +147,10 @@ def get_uri(user_id):
 
     points = 0
     if 'pontos:' in s:
-        strpoints = s[s.index('pontos:')+1].replace('.', '')
+        strpoints = s[s.index('pontos:') + 1].replace('.', '')
         points = int(strpoints[:strpoints.index(',')])
     elif 'points:' in s:
-        strpoints = s[s.index('points:')+1].replace('.', '')
+        strpoints = s[s.index('points:') + 1].replace('.', '')
         points = int(strpoints[:strpoints.index(',')])
 
     return [points, '#F9A908']
@@ -169,4 +171,23 @@ def get_leetcode(username):
     rankings = max([d['rating']
                     for d in json_data['data']['userContestRankingHistory']])
     rankings = int(rankings)
+    return [rankings, '#FFA116']
+
+
+def get_leetcode_cn(username):
+    url = 'https://leetcode-cn.com/graphql'
+    r = requests.post(
+        url,
+        json={
+            "operationName":
+            "userPublicProfile",
+            "variables": {
+                "userSlug": username
+            },
+            "query":
+            'query userPublicProfile($userSlug: String!) {userProfilePublicProfile(userSlug: $userSlug){profile{ranking{ratingProgress}}}}'
+        })
+    json_data = r.json()
+    rankings = max(d for d in json_data['data']['userProfilePublicProfile']
+                   ['profile']['ranking']['ratingProgress'])
     return [rankings, '#FFA116']
