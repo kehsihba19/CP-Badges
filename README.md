@@ -30,6 +30,7 @@ https://cp-logo.vercel.app/topcoder/<user_name>
 https://cp-logo.vercel.app/yukicoder/<user_name>
 https://cp-logo.vercel.app/uri/<user_name>
 https://cp-logo.vercel.app/leetcode/<user_name>
+https://cp-logo.vercel.app/leetcode-cn/<user_name>
 ```
 
 ## Usage
@@ -97,6 +98,8 @@ Some examples are -
 ![Badge](https://cp-logo.vercel.app/topcoder/forgotter)
 
 ![Badge](https://cp-logo.vercel.app/leetcode/Errichto)
+
+![Badge](https://cp-logo.vercel.app/leetcode-cn/bitethed4t)
 
 ## Contributing
 
