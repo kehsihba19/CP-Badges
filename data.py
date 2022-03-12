@@ -28,13 +28,14 @@ def get_info(handle, website):
 
 
 def get_cf(user):
-    r = requests.get(f"https://codeforces.com/profile/{user}").text
-    soup = bs(r, 'lxml')
-    s = soup.find('span', class_='smaller')
-    s = s.text
-    rating = (re.findall(r'\d+', s)[0])
+    url = f'https://www.codeforces.com/profile/{user}'
+    page = requests.get(url)
+    soup = bs(page.text, 'html.parser')
+    s = soup.find('span', attrs={'style':'font-weight:bold;'})
+    s=s.text
     col = 'red'
-    y = int(rating)
+    rating = int(s)
+    y=rating
     if (y <= 1199):
         col = '#cec8c1'
     elif (y > 1199 and y <= 1399):
