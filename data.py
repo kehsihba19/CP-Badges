@@ -31,8 +31,8 @@ def get_cf(user):
     url = f'https://www.codeforces.com/profile/{user}'
     page = requests.get(url)
     soup = bs(page.text, 'html.parser')
-    s = soup.find('span', attrs={'style':'font-weight:bold;'})
-    s=s.text
+    s = soup.find_all('span', attrs={'style':'font-weight:bold;'})
+    s=s[-1].text
     col = 'red'
     rating = int(s)
     y=rating
@@ -59,11 +59,13 @@ def get_cc(user):
     url = f'https://www.codechef.com/users/{user}'
     page = requests.get(url)
     soup = bs(page.text, 'html.parser')
-    s=soup.find('div',attrs={'class':'rating-number'})
-    s=s.text
-    rating=int(s)
+    rating = soup.find_all('small')
+    if(len(rating)==5):
+        rating = (re.findall(r'\d+', rating[-2].text))
+    else:
+        rating = (re.findall(r'\d+', rating[-1].text))
     col = 'red'
-    y = rating
+    y = int(rating[0])
     if (y <= 1399):
         col = '#6A6860'
     elif (y > 1399 and y <= 1599):
@@ -78,7 +80,7 @@ def get_cc(user):
         col = "#FF9E1B"
     else:
         col = "#FF1B1B"
-    return [rating, col]
+    return [rating[0], col]
 
 
 def get_at(user):
