@@ -28,27 +28,37 @@ def get_info(handle, website):
 
 
 def get_cf(user):
-    url = f'https://www.codeforces.com/profile/{user}'
-    page = requests.get(url)
-    soup = bs(page.text, 'html.parser')
-    s = soup.find_all('span', attrs={'style':'font-weight:bold;'})
-    s=s[-1].text
-    col = 'red'
-    rating = int(s)
-    y=rating
-    if (y <= 1199):
+    """
+        Returns rating and color of the codeforces user.
+
+                Parameters:
+                        user (str): handle of the codeforces user
+                Returns:
+                        [rating, col] (int, str): Current rating and the associated color of the given user.
+                        Returns [-1, "#00000"] (-1, black) if the API is not responding.
+    """
+    url = f'https://codeforces.com/api/user.info?handles={user}'
+    try:
+        response = requests.get(url)
+        profile_data = response.json().get('result')[0]
+    except:
+        return [-1, "#00000"]
+
+    rating = int(profile_data.get('rating', 0))
+    y = rating
+    if y <= 1199:
         col = '#cec8c1'
-    elif (y > 1199 and y <= 1399):
+    elif 1199 < y <= 1399:
         col = '#43A217'
-    elif (y > 1399 and y <= 1599):
+    elif 1399 < y <= 1599:
         col = "#22C4AE"
-    elif (y > 1599 and y <= 1899):
+    elif 1599 < y <= 1899:
         col = "#1427B2"
-    elif (y > 1899 and y <= 2099):
+    elif 1899 < y <= 2099:
         col = "#700CB0"
-    elif (y > 2099 and y <= 2299):
+    elif 2099 < y <= 2299:
         col = "#F9A908"
-    elif (y > 2299 and y <= 2399):
+    elif 2299 < y <= 2399:
         col = "#FBB948"
     else:
         col = "#FF0000"
