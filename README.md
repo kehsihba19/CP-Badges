@@ -17,7 +17,7 @@ This repo helps you to create your custom profile badges with Max rating in Code
 Use the package manager [pip3](https://pip.pypa.io/en/stable/) to install requirements file first.
 
 ```bash
-pip3 install requirements.text
+pip3 install -r requirements.text
 ```
 
 ## Endpoints
@@ -28,7 +28,7 @@ https://cp-logo.vercel.app/codechef/<user_name>
 https://cp-logo.vercel.app/atcoder/<user_name>
 https://cp-logo.vercel.app/topcoder/<user_name>
 https://cp-logo.vercel.app/yukicoder/<user_name>
-https://cp-logo.vercel.app/uri/<user_name>
+https://cp-logo.vercel.app/beecrowd/<user_name>
 https://cp-logo.vercel.app/leetcode/<user_name>
 https://cp-logo.vercel.app/leetcode-cn/<user_name>
 ```
@@ -89,9 +89,9 @@ Some examples are -
 ![Badge](https://cp-logo.vercel.app/yukicoder/ganariya)
 ![Badge](https://cp-logo.vercel.app/yukicoder/imulan)
 
-![Badge](https://cp-logo.vercel.app/uri/40926)
-![Badge](https://cp-logo.vercel.app/uri/440377)
-![Badge](https://cp-logo.vercel.app/uri/40980)
+![Badge](https://cp-logo.vercel.app/beecrowd/40926)
+![Badge](https://cp-logo.vercel.app/beecrowd/440377)
+![Badge](https://cp-logo.vercel.app/beecrowd/40980)
 
 ![Badge](https://cp-logo.vercel.app/topcoder/AmAtUrECoDeR)
 ![Badge](https://cp-logo.vercel.app/topcoder/tourist)

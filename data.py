@@ -17,8 +17,8 @@ def get_info(handle, website):
         return get_top(handle)
     elif website == 'yukicoder':
         return get_yuki(handle)
-    elif website == 'uri':
-        return get_uri(handle)
+    elif website == 'beecrowd':
+        return get_beecrowd(handle)
     elif website == 'leetcode':
         return get_leetcode(handle)
     elif website == 'leetcode-cn':
@@ -141,8 +141,8 @@ def get_yuki(user):
     return [level, color]
 
 
-def get_uri(user_id):
-    url = f'https://www.urionlinejudge.com.br/judge/pt/profile/{user_id}'
+def get_beecrowd(user_id):
+    url = f'https://www.beecrowd.com.br/judge/pt/profile/{user_id}'
     r = requests.get(url).text
 
     soup = bs(r, 'html.parser')
