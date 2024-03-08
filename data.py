@@ -28,13 +28,12 @@ def get_info(handle, website):
 
 
 def get_cf(user):
-    url = f'https://www.codeforces.com/profile/{user}'
-    page = requests.get(url)
-    soup = bs(page.text, 'html.parser')
-    s = soup.find_all('span', attrs={'style':'font-weight:bold;'})
-    s=s[-1].text
+    # using codeforces API to get the latest contest details
+    url = f'https://codeforces.com/api/user.rating?handle={user}'
+    # extracting new rating of the most recent contest which is at last row
+    rating = requests.get(url).json()['result'][-1]['newRating']
     col = 'red'
-    rating = int(s)
+    rating = int(rating)
     y=rating
     if (y <= 1199):
         col = '#cec8c1'
@@ -53,6 +52,7 @@ def get_cf(user):
     else:
         col = "#FF0000"
     return [rating, col]
+
 
 
 def get_cc(user):
