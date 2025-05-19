@@ -5,4 +5,3 @@ lxml
 gunicorn
 pybadges
 html.parser
-dataclasses
