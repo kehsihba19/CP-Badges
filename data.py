@@ -17,8 +17,6 @@ def get_info(handle, website):
         return get_top(handle)
     elif website == 'yukicoder':
         return get_yuki(handle)
-    elif website == 'uri':
-        return get_uri(handle)
     elif website == 'leetcode':
         return get_leetcode(handle)
     elif website == 'leetcode-cn':
@@ -28,30 +26,32 @@ def get_info(handle, website):
 
 
 def get_cf(user):
-    url = f'https://www.codeforces.com/profile/{user}'
-    page = requests.get(url)
-    soup = bs(page.text, 'html.parser')
-    s = soup.find_all('span', attrs={'style':'font-weight:bold;'})
-    s=s[-1].text
+    url = f'https://codeforces.com/api/user.info?handles={user}'
+    response = requests.get(url)
+    response.raise_for_status()
+    data = response.json()
+    user_data = data['result'][0]
+    rating = user_data.get('rating', 0)
+    
+    # Determine color based on rating
     col = 'red'
-    rating = int(s)
-    y=rating
-    if (y <= 1199):
+    if rating <= 1199:
         col = '#cec8c1'
-    elif (y > 1199 and y <= 1399):
+    elif rating <= 1399:
         col = '#43A217'
-    elif (y > 1399 and y <= 1599):
+    elif rating <= 1599:
         col = "#22C4AE"
-    elif (y > 1599 and y <= 1899):
+    elif rating <= 1899:
         col = "#1427B2"
-    elif (y > 1899 and y <= 2099):
+    elif rating <= 2099:
         col = "#700CB0"
-    elif (y > 2099 and y <= 2299):
+    elif rating <= 2299:
         col = "#F9A908"
-    elif (y > 2299 and y <= 2399):
+    elif rating <= 2399:
         col = "#FBB948"
     else:
         col = "#FF0000"
+        
     return [rating, col]
 
 
@@ -113,23 +113,10 @@ def get_at(user):
 
 
 def get_top(user):
-    url = f'http://api.topcoder.com/v2/users/{user}'
+    url = f'https://api.topcoder.com/v5/members/{user}'
     json_data = requests.get(url).json()
-    rating = None
-    for kind in json_data['ratingSummary']:
-        if kind['name'] == 'Algorithm':
-            rating = kind['rating']
-    color = None
-    if rating < 900:
-        color = "#8E8E81"
-    elif rating < 1200:
-        color = "#5CB01E"
-    elif rating < 1500:
-        color = "#1642E5"
-    elif rating < 2200:
-        color = "#CFE115"
-    else:
-        color = "#FF0000"
+    rating = json_data['maxRating']['rating']
+    color = json_data['maxRating']['ratingColor']
     return [rating, color]
 
 
@@ -141,45 +128,26 @@ def get_yuki(user):
     return [level, color]
 
 
-def get_uri(user_id):
-    url = f'https://www.urionlinejudge.com.br/judge/pt/profile/{user_id}'
-    r = requests.get(url).text
-
-    soup = bs(r, 'html.parser')
-    s = soup.find('ul', class_='pb-information')
-    s = [word.lower() for word in s.text.split()]
-
-    points = 0
-    if 'pontos:' in s:
-        strpoints = s[s.index('pontos:') + 1].replace('.', '')
-        points = int(strpoints[:strpoints.index(',')])
-    elif 'points:' in s:
-        strpoints = s[s.index('points:') + 1].replace('.', '')
-        points = int(strpoints[:strpoints.index(',')])
-
-    return [points, '#F9A908']
-
-
 def get_leetcode(username):
-    url = 'http://leetcode.com/graphql'
-    queryString = '''query getContestRankingData($username: String!) {
-                        userContestRankingHistory(username: $username) {
-                                rating
-                            }
-                    }'''
+    url = 'https://leetcode.com/graphql'
+    queryString = '''query userContestRankingInfo($username: String!) {
+                        userContestRanking(username: $username) {
+                            rating
+                        }
+                    } '''
     variables = {
         "username": username,
     }
-    r = requests.get(url, json={'query': queryString, 'variables': variables})
+    payload = json.dumps({"query": queryString, "variables": variables})
+    r = requests.request("POST", url, headers={'Content-Type': 'application/json'}, data=payload)
     json_data = r.json()
-    rankings = max([d['rating']
-                    for d in json_data['data']['userContestRankingHistory']])
-    rankings = int(rankings)
+    rankings = json_data['data']['userContestRanking']['rating']
+    rankings = round(rankings)
     return [rankings, '#FFA116']
 
 
 def get_leetcode_cn(username):
-    url = 'https://leetcode-cn.com/graphql'
+    url = 'https://leetcode.cn/graphql'
     r = requests.post(
         url,
         json={

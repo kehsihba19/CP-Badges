@@ -1,11 +1,14 @@
 {
-    "name": "CP badges",
-    "version": 2,
-    "builds": [{
-        "src": "*py",
-        "use": "@liudonghua123/now-flask"
-    }],
+    "builds": [
+      {
+        "src": "main.py",
+        "use": "@vercel/python"
+      }
+    ],
     "routes": [
-        { "src": "(.*)", "dest": "main.py" }
+      {
+        "src": "/(.*)",
+        "dest": "/main.py"
+      }
     ]
-}
+  }

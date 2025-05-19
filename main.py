@@ -12,7 +12,6 @@ logos = {
     'atcoder': 'https://img.atcoder.jp/assets/atcoder.png',
     'topcoder': 'https://raw.githubusercontent.com/donnemartin/interactive-coding-challenges/master/images/logo_topcoder.png',
     'yukicoder': 'https://pbs.twimg.com/profile_images/875757061669232640/T1_mPQuO_400x400.jpg',
-    'uri': 'https://www.urionlinejudge.com.br/judge/img/5.0/logo.130615.png?1591503281',
     'leetcode': 'https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/resources/LeetCode.png',
     'leetcode-cn': 'https://raw.githubusercontent.com/LeetCode-OpenSource/vscode-leetcode/master/resources/LeetCode.png'
 }
@@ -23,7 +22,6 @@ website_text = {
     'codeforces': 'Codeforces',
     'topcoder': 'TopCoder',
     'yukicoder': 'YukiCoder',
-    'uri': 'URI',
     'leetcode': 'LeetCode',
     'leetcode-cn': 'LeetCode-CN'
 }
