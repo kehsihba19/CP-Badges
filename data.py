@@ -27,7 +27,7 @@ def get_info(handle, website):
 
 def get_cf(user):
     url = f'https://codeforces.com/api/user.info?handles={user}'
-    response = requests.get(url)
+    response = requests.get(url, timeout=30)
     response.raise_for_status()
     data = response.json()
     user_data = data['result'][0]
@@ -57,7 +57,7 @@ def get_cf(user):
 
 def get_cc(user):
     url = f'https://www.codechef.com/users/{user}'
-    page = requests.get(url)
+    page = requests.get(url, timeout=30)
     soup = bs(page.text, 'html.parser')
     rating = soup.find_all('small')
     if(len(rating)==5):
@@ -85,7 +85,7 @@ def get_cc(user):
 
 def get_at(user):
     url = f'https://atcoder.jp/users/{user}'
-    page = requests.get(url)
+    page = requests.get(url, timeout=30)
     soup = bs(page.text, 'html.parser')
     x = soup.find_all('table', class_='dl-table')
     y = x[1].find_all('span')
@@ -114,7 +114,7 @@ def get_at(user):
 
 def get_top(user):
     url = f'https://api.topcoder.com/v5/members/{user}'
-    json_data = requests.get(url).json()
+    json_data = requests.get(url, timeout=30).json()
     rating = json_data['maxRating']['rating']
     color = json_data['maxRating']['ratingColor']
     return [rating, color]
@@ -122,7 +122,7 @@ def get_top(user):
 
 def get_yuki(user):
     url = f'https://yukicoder.me/api/v1/user/name/{user}'
-    json_data = requests.get(url).json()
+    json_data = requests.get(url, timeout=30).json()
     level = str(json_data['Level'])
     color = '#2ecc71'
     return [level, color]
